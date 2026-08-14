@@ -1,0 +1,14 @@
+.DS_Store
+._*
+.vercel/
+frontend/.vercel/
+frontend/config.js
+frontend/assets/student.png
+.env
+.env.*
+!.env.example
+node_modules/
+
+# Production-only operational history is intentionally excluded from the showcase.
+supabase/*-migration.sql
+supabase/cleanup-vps.sh

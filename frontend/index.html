@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#001e57" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Austonian Hub" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>Austonian Hub</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css?v=29" />
+  <link rel="stylesheet" href="desktop.css?v=29" />
+</head>
+<body>
+  <main class="phone" aria-label="Austonian Hub student application">
+    <div id="app" class="screen" aria-live="polite"></div>
+    <nav id="nav" class="bottom-nav" aria-label="Primary navigation"></nav>
+  </main>
+  <div id="toast" class="toast" role="status"></div>
+  <div id="sheetBackdrop" class="sheet-backdrop" hidden></div>
+  <aside id="appSheet" class="app-sheet" aria-modal="true" role="dialog" aria-label="App details" hidden>
+    <button class="sheet-close" data-sheet-close aria-label="Close">×</button>
+    <div id="sheetContent"></div>
+  </aside>
+  <aside id="installGate" class="install-gate" hidden aria-modal="true" role="dialog" aria-labelledby="installTitle">
+    <img src="assets/app-icon-192.png" alt="" />
+    <h1 id="installTitle">Add Austonian Hub to your Home Screen</h1>
+    <p id="installHelp">Install the app to continue on your phone.</p>
+    <button id="installButton" class="form-submit">Add to Home Screen</button>
+  </aside>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js?v=29"></script>
+  <script>if('serviceWorker' in navigator) addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));</script>
+</body>
+</html>
