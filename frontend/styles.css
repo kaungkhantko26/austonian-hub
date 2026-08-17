@@ -150,6 +150,7 @@ html[data-stage="login"],html[data-stage="signup"],html[data-stage="reset"],body
  body[data-stage="app"]{position:fixed;inset:0}
  .phone[data-stage="app"]{position:fixed;inset:0;width:100%;max-width:none;height:100%;min-height:-webkit-fill-available;background:var(--app-shell-bg,#e5b300)!important;overflow:hidden}
  .phone[data-stage="app"] .screen{height:100%;min-height:100%;background:var(--app-shell-bg,#e5b300)}
+ .phone[data-stage="app"]>.bottom-nav{position:absolute!important;inset:auto 0 -1px!important;width:100%!important;height:calc(68px + env(safe-area-inset-bottom))!important;margin:0!important;padding:5px 12px max(6px,env(safe-area-inset-bottom))!important;border-radius:24px 24px 0 0!important;background:rgba(255,255,255,.96)!important;transform:none!important}
  html[data-view="admin"],body[data-view="admin"],.phone[data-view="admin"],.phone[data-view="admin"] .screen{background:#eef3f9!important}
  html[data-view="card"],body[data-view="card"],.phone[data-view="card"]{background:#f7f9fc!important}
  html[data-view="home"],body[data-view="home"],.phone[data-view="home"],html[data-view="jobs"],body[data-view="jobs"],.phone[data-view="jobs"],html[data-view="class"],body[data-view="class"],.phone[data-view="class"],html[data-view="feed"],body[data-view="feed"],.phone[data-view="feed"],html[data-view="settings"],body[data-view="settings"],.phone[data-view="settings"]{background:#e5b300!important}
