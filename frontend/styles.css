@@ -94,7 +94,6 @@ html,body,.phone,.screen{overscroll-behavior-y:none}
  html,body{height:100%;background:#e5b300;overflow:hidden}
  .phone[data-stage="app"]{height:100dvh;min-height:100dvh;background:#e5b300;box-shadow:none}
  .phone[data-stage="app"] .screen{height:100dvh;overscroll-behavior-y:none;-webkit-overflow-scrolling:touch}
- .bottom-nav{position:fixed;z-index:50;left:0;right:0;bottom:0;width:100%;height:calc(67px + env(safe-area-inset-bottom));padding:5px 12px max(5px,env(safe-area-inset-bottom));border-width:1px 0 0;border-radius:24px 24px 0 0;background:#ffffffe8;border-color:#ffffffb8;box-shadow:0 -12px 36px #001e5728;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);contain:layout paint}
  .bottom-nav .nav-btn{background:transparent;-webkit-tap-highlight-color:transparent}
  .bottom-nav .nav-btn.active{background:var(--yellow)}
  .phone[data-view="home"] .screen,.phone[data-view="class"] .screen{background:#e5b300}
@@ -146,11 +145,12 @@ html[data-stage="login"],html[data-stage="signup"],html[data-stage="reset"],body
 
 /* Full-screen mobile PWA shell: match every safe area to the active screen. */
 @media(max-width:599px){
- html,body{width:100%;height:100%;min-height:100%;background:var(--app-shell-bg,#e5b300);overflow:hidden;-webkit-text-size-adjust:100%;touch-action:pan-x pan-y}
- body[data-stage="app"]{position:fixed;inset:0}
- .phone[data-stage="app"]{position:fixed;inset:0;width:100%;max-width:none;height:100%;min-height:-webkit-fill-available;background:var(--app-shell-bg,#e5b300)!important;overflow:hidden}
- .phone[data-stage="app"] .screen{height:100%;min-height:100%;background:var(--app-shell-bg,#e5b300)}
- .phone[data-stage="app"]>.bottom-nav{position:absolute!important;inset:auto 0 0!important;width:100%!important;height:calc(68px + env(safe-area-inset-bottom))!important;margin:0!important;padding:5px 12px max(6px,env(safe-area-inset-bottom))!important;border:1px solid #ffffffb8!important;border-width:1px 0 0!important;border-radius:24px 24px 0 0!important;background:#fffffff2!important;box-shadow:0 -12px 36px #001e5728!important;transform:none!important}
+ html,body{margin:0;padding:0;width:100%;min-height:100%;background:var(--app-shell-bg,#e5b300);overflow-x:hidden;overflow-y:hidden;-webkit-text-size-adjust:100%;touch-action:pan-x pan-y}
+ body[data-stage="app"]{position:static;width:100%;height:100dvh;min-height:100dvh;overflow:hidden}
+ .phone[data-stage="app"]{position:relative;inset:auto;width:100%;max-width:none;height:100dvh;min-height:100dvh;background:var(--app-shell-bg,#e5b300)!important;overflow:hidden}
+ .phone[data-stage="app"] .screen{height:100dvh;min-height:0;padding-bottom:calc(82px + env(safe-area-inset-bottom));background:var(--app-shell-bg,#e5b300)}
+ .phone[data-stage="app"] .home-bg,.phone[data-stage="app"] .yellow-page,.phone[data-stage="app"] .figma-calendar-page,.phone[data-stage="app"] .admin-page,.phone[data-stage="app"] .admin-v2{margin-bottom:0!important;padding-bottom:0!important}
+ .phone[data-stage="app"]>.bottom-nav{position:fixed!important;z-index:1000;left:0!important;right:0!important;bottom:0!important;top:auto!important;width:100%!important;height:auto!important;min-height:68px;margin:0!important;padding:6px 12px calc(6px + env(safe-area-inset-bottom))!important;box-sizing:border-box;border:1px solid #ffffffb8!important;border-width:1px 0 0!important;border-radius:24px 24px 0 0!important;background:#fffdf2!important;box-shadow:0 -12px 36px #001e5728!important;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);transform:none!important}
  .phone[data-stage="app"]>.bottom-nav .nav-btn{background:transparent}
  .phone[data-stage="app"]>.bottom-nav .nav-btn.active{background:#ffcc03;color:#001e57}
  .phone[data-view="admin"],.phone[data-view="admin"] .screen{background:#eef3f9!important}
