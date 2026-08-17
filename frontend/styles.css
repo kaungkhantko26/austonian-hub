@@ -100,3 +100,37 @@ html,body,.phone,.screen{overscroll-behavior-y:none}
  .phone[data-view="home"] .screen,.phone[data-view="class"] .screen{background:#e5b300}
  .phone[data-view="admin"] .screen{background:#eef3f9}
 }
+
+/* Personal availability and role-aware class controls */
+.free-time-card{min-width:0;padding:15px;border-radius:18px;background:#001e57;color:white;box-shadow:0 12px 28px #001e5720}
+.free-time-card header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.free-time-card header span,.free-time-card header small,.free-time-card header strong{display:block}
+.free-time-card header small{margin-bottom:4px;color:#ffcc03;font-size:7px;font-weight:900;letter-spacing:.13em}
+.free-time-card header strong{font-size:14px}
+.free-time-card header button{flex:0 0 auto;min-height:34px;padding:0 12px;border:0;border-radius:11px;background:#ffcc03;color:#001e57;font-size:9px;font-weight:900;cursor:pointer}
+.free-time-slots{margin-top:11px;display:flex;gap:7px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none}
+.free-time-slots::-webkit-scrollbar{display:none}
+.free-time-slots span{flex:0 0 auto;padding:7px 9px;border:1px solid #ffffff2e;border-radius:999px;background:#ffffff12;color:white;font-size:8px;font-weight:800}
+.free-time-slots>small{color:#c7d4e8;font-size:9px;line-height:1.45}
+.free-time-card>p{margin:9px 0 0;color:#aebed7;font-size:8px}
+.schedule-kind{align-self:flex-start;margin-bottom:2px;color:#8a6a00;font-size:6.5px;font-weight:950;letter-spacing:.11em}
+.is-personal .schedule-kind{color:#16784b}
+.is-official .item-delete{background:#fff0f0;color:#b42318}
+
+/* Installed mobile app: true viewport fill and scrolling only where needed */
+@media(max-width:599px){
+ .phone[data-stage="login"],.phone[data-stage="signup"],.phone[data-stage="reset"],.phone[data-stage="splash"]{position:fixed;inset:0;width:100%;max-width:none;height:100dvh;min-height:100dvh;background:#f6f3eb;box-shadow:none;overflow:hidden}
+ .phone[data-stage="login"] .screen.auth,.phone[data-stage="signup"] .screen.auth,.phone[data-stage="reset"] .screen.auth{height:100dvh;min-height:0;padding:0;background:#f6f3eb;overflow:hidden;overscroll-behavior:none}
+ .phone[data-stage="login"] .auth-form-page,.phone[data-stage="login"] .auth-workspace{height:100dvh;min-height:0;overflow:hidden}
+ .phone[data-stage="login"] .auth-workspace{padding-top:calc(18px + env(safe-area-inset-top));padding-bottom:calc(18px + env(safe-area-inset-bottom))}
+ .phone[data-stage="login"] .auth-workspace:before{margin-bottom:16px}
+ .phone[data-stage="login"] .auth-mode{margin-bottom:20px}
+ .phone[data-stage="login"] .auth-panel{margin:auto 0;padding-bottom:0}
+ .phone[data-stage="login"] .auth-heading{margin-bottom:20px}
+ .phone[data-stage="signup"] .auth-form-page,.phone[data-stage="reset"] .auth-form-page{height:100dvh;min-height:0;overflow:hidden}
+ .phone[data-stage="signup"] .auth-workspace,.phone[data-stage="reset"] .auth-workspace{height:100dvh;min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch}
+ .phone[data-stage="app"] .screen{overflow-x:hidden;overflow-y:auto}
+}
+@media(max-width:599px) and (max-height:700px){
+ .phone[data-stage="login"] .auth-workspace{overflow-y:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch}
+}
