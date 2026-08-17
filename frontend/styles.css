@@ -145,10 +145,10 @@ html[data-stage="login"],html[data-stage="signup"],html[data-stage="reset"],body
 @media(max-width:599px){
  body[data-stage="app"]{width:100%;height:100dvh;min-height:100dvh;background:var(--app-shell-bg,#e5b300);overflow:hidden}
  .phone[data-stage="app"]{position:relative;inset:auto;width:100%;max-width:none;height:100dvh;min-height:100dvh;background:var(--app-shell-bg,#e5b300)!important;box-shadow:none;overflow:hidden}
- .phone[data-stage="app"] .screen{width:100%;height:100dvh;min-height:0;margin:0;padding:calc(env(safe-area-inset-top) + 12px) clamp(16px,4.975vw,20px) calc(80px + max(10px,env(safe-area-inset-bottom)));background:var(--app-shell-bg,#e5b300);overflow-x:hidden;overflow-y:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch}
+ .phone[data-stage="app"] .screen{width:100%;height:100dvh;min-height:0;margin:0;padding:calc(env(safe-area-inset-top) + 12px) clamp(16px,4.975vw,20px) calc(88px + env(safe-area-inset-bottom));background:var(--app-shell-bg,#e5b300);overflow-x:hidden;overflow-y:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch}
  .phone[data-stage="app"] .desktop-content{display:block;min-width:0;margin:0;padding:0}
  .phone[data-stage="app"] .home-bg,.phone[data-stage="app"] .yellow-page,.phone[data-stage="app"] .figma-calendar-page,.phone[data-stage="app"] .admin-page,.phone[data-stage="app"] .admin-v2{width:100%;min-width:0;min-height:0!important;margin:0!important;padding:0!important}
- .phone[data-stage="app"]>.bottom-nav{position:fixed!important;z-index:1000;left:12px!important;right:12px!important;bottom:max(10px,env(safe-area-inset-bottom))!important;top:auto!important;width:auto!important;height:66px!important;min-height:66px;margin:0!important;padding:4px!important;grid-template-columns:repeat(var(--tab-count,6),minmax(0,1fr));gap:2px;box-sizing:border-box;border:1px solid #e0e5f0!important;border-radius:22px!important;background:#fff!important;box-shadow:0 8px 24px #001e5714!important;backdrop-filter:none;-webkit-backdrop-filter:none;transform:none!important;overflow:hidden}
+ .phone[data-stage="app"]>.bottom-nav{position:fixed!important;z-index:1000;left:clamp(10px,5vw,20px)!important;right:clamp(10px,5vw,20px)!important;bottom:calc(8px + env(safe-area-inset-bottom))!important;top:auto!important;width:auto!important;height:66px!important;min-height:66px;margin:0!important;padding:4px!important;grid-template-columns:repeat(var(--tab-count,6),minmax(0,1fr));gap:2px;box-sizing:border-box;border:1px solid #e0e5f0!important;border-radius:23px!important;background:#fff!important;box-shadow:0 10px 28px #001e5724!important;backdrop-filter:none;-webkit-backdrop-filter:none;transform:none!important;overflow:hidden}
  .phone[data-stage="app"]>.bottom-nav .nav-btn{min-width:0;height:56px;min-height:56px;padding:0;gap:4px;border-radius:16px;background:#fff;color:#001e57;font-family:"Open Sans",Inter,sans-serif;font-size:8px;font-weight:600;line-height:11px;white-space:nowrap;-webkit-tap-highlight-color:transparent}
  .phone[data-stage="app"]>.bottom-nav .nav-btn img{width:20px;height:20px}
  .phone[data-stage="app"]>.bottom-nav .nav-btn.active{background:#ffcc03;color:#001e57}
@@ -162,6 +162,21 @@ html[data-stage="login"],html[data-stage="signup"],html[data-stage="reset"],body
  .phone[data-stage="app"] .admin-v2{gap:clamp(11px,3.5vw,16px)}
  .phone[data-stage="app"] .admin-module{padding:clamp(14px,4.2vw,17px)}
  .phone[data-stage="app"] .id-card{max-width:100%;margin:clamp(18px,6vw,30px) 0}
+ .phone[data-view="card"] .figma-id-card{width:100%;height:auto;aspect-ratio:564/326;margin:18px 0 22px;border-radius:0;perspective:1200px}
+ .phone[data-view="card"] .figma-id-card .id-face{border-radius:0 0 24px 24px;background:linear-gradient(135deg,#fff 64%,#f1f1ef 100%);box-shadow:0 12px 30px #001e5720}
+ .phone[data-view="card"] .figma-id-card .id-brand{height:27.6%;background:#001e57}
+ .phone[data-view="card"] .figma-id-card .id-brand img{width:43%;max-height:62%;object-fit:contain}
+ .phone[data-view="card"] .figma-id-card .id-info{height:72.4%;padding:clamp(12px,4vw,18px) clamp(14px,4.5vw,20px);gap:12px;align-items:center}
+ .phone[data-view="card"] .figma-id-card .id-copy{min-width:0;flex:1}
+ .phone[data-view="card"] .figma-id-card .id-copy h2{margin:0 0 8px;font-size:clamp(16px,5vw,22px);line-height:1.05;color:#030303}
+ .phone[data-view="card"] .figma-id-card dl{margin:0;font-size:clamp(7px,2.45vw,11px);font-weight:800;line-height:1.35;color:#030303}
+ .phone[data-view="card"] .figma-id-card dl div{display:grid;grid-template-columns:64px minmax(0,1fr);gap:7px}
+ .phone[data-view="card"] .figma-id-card dt:after{content:":";float:right}.phone[data-view="card"] .figma-id-card dd{margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .phone[data-view="card"] .figma-id-card .id-email{margin:7px 0 0;max-width:100%;overflow:hidden;color:#536077;font-size:clamp(7px,2.15vw,10px);font-weight:700;text-overflow:ellipsis;white-space:nowrap}
+ .phone[data-view="card"] .figma-id-card .id-photo-wrap{position:relative;flex:0 0 clamp(88px,28vw,118px);align-self:center}
+ .phone[data-view="card"] .figma-id-card .portrait{display:grid;width:100%;height:auto;aspect-ratio:1;border-radius:20%;place-items:center;background:#edf2f8;color:#001e57;font-size:24px;font-weight:900;object-fit:cover}
+ .phone[data-view="card"] .figma-id-card .photo-edit{position:absolute;right:-3px;bottom:-8px;padding:7px 11px;border:0;border-radius:999px;background:#ffcc03;color:#001e57;box-shadow:0 7px 16px #001e5730;font-size:9px;font-weight:900}
+ .phone[data-view="card"] .figma-id-card .id-back{padding:20px;border-radius:24px;background:#001e57;color:#fff}
  .phone[data-view="admin"],.phone[data-view="admin"] .screen{background:#eef3f9!important}
  .phone[data-view="card"],.phone[data-view="card"] .screen{background:#f7f9fc!important}
  .phone[data-view="home"],.phone[data-view="home"] .screen,.phone[data-view="jobs"],.phone[data-view="jobs"] .screen,.phone[data-view="class"],.phone[data-view="class"] .screen,.phone[data-view="feed"],.phone[data-view="feed"] .screen,.phone[data-view="settings"],.phone[data-view="settings"] .screen{background:#e5b300!important}
