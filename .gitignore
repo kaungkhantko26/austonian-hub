@@ -8,6 +8,8 @@ frontend/assets/student.png
 .env.*
 !.env.example
 node_modules/
+.agents/
+skills-lock.json
 
 # Production-only operational history is intentionally excluded from the showcase.
 supabase/*-migration.sql

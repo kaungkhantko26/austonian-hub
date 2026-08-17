@@ -252,10 +252,11 @@ begin
   end if;
   select academic_level into assigned_level from public.academic_assignments where email=lower(new.email);
   insert into public.profiles(id,email,student_id,full_name,is_admin,academic_level)
-  values(new.id,lower(new.email),sid,student_name,false,assigned_level);
+  values(new.id,lower(new.email),sid,student_name,lower(new.email) ~ '^[^@]+@auston\.edu\.mm$',assigned_level);
   return new;
 end;
 $$;
+revoke execute on function public.handle_new_user() from public, anon, authenticated;
 
 drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created after insert on auth.users

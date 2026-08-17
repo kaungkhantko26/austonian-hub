@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#001e57" />
+  <meta name="theme-color" content="#e5b300" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -13,8 +13,8 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
-  <link rel="stylesheet" href="styles.css?v=29" />
-  <link rel="stylesheet" href="desktop.css?v=29" />
+  <link rel="stylesheet" href="styles.css?v=30" />
+  <link rel="stylesheet" href="desktop.css?v=30" />
 </head>
 <body>
   <main class="phone" aria-label="Austonian Hub student application">
@@ -33,9 +33,19 @@
     <p id="installHelp">Install the app to continue on your phone.</p>
     <button id="installButton" class="form-submit">Add to Home Screen</button>
   </aside>
+  <aside id="notificationGate" class="notification-gate" hidden aria-modal="true" role="dialog" aria-labelledby="notificationTitle">
+    <div class="notification-gate-card">
+      <span class="notification-gate-icon" aria-hidden="true">!</span>
+      <p class="eyebrow">LIVE STUDENT UPDATES</p>
+      <h2 id="notificationTitle">Never miss a class change</h2>
+      <p>Allow notifications for timetable changes, deadlines, and official Auston notices.</p>
+      <button id="allowNotifications" class="form-submit">Allow notifications</button>
+      <button id="skipNotifications" class="notification-skip">Not now</button>
+    </div>
+  </aside>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="config.js"></script>
-  <script src="app.js?v=29"></script>
+  <script src="app.js?v=30"></script>
   <script>if('serviceWorker' in navigator) addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));</script>
 </body>
 </html>

@@ -79,3 +79,24 @@
 /* Touch behaviour and scrollable monthly date rail */
 html,body,.phone,.screen,button,a,[role="button"],input,select{touch-action:manipulation}.figma-week-strip{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}.figma-week-strip::-webkit-scrollbar{display:none}.figma-week-strip button{flex:0 0 47px;scroll-snap-align:center}.student-choice,.select-all-choice{-webkit-tap-highlight-color:transparent;user-select:none}
 @media(min-width:600px){.figma-week-strip button{flex-basis:52px}}
+
+/* PWA shell, stable navigation, and notification consent */
+html,body,.phone,.screen{overscroll-behavior-y:none}
+.notification-gate{position:fixed;z-index:210;inset:0;padding:22px;display:grid;place-items:center;background:#001e5785;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.notification-gate[hidden]{display:none}
+.notification-gate-card{width:min(390px,100%);padding:30px 24px calc(24px + env(safe-area-inset-bottom));border:1px solid #ffffff70;border-radius:28px;background:#f8faff;box-shadow:0 28px 80px #00143455;text-align:center}
+.notification-gate-icon{width:62px;height:62px;margin:0 auto 18px;border-radius:20px;display:grid;place-items:center;background:var(--yellow);color:var(--navy);font-size:28px;font-weight:950}
+.notification-gate-card h2{margin:7px 0 10px;color:var(--navy);font-size:25px;line-height:1.08}
+.notification-gate-card>p:not(.eyebrow){margin:0 auto 22px;max-width:310px;color:var(--muted);font-size:12px;line-height:1.55}
+.notification-skip{margin-top:12px;padding:9px 16px;border:0;background:transparent;color:#59667a;font-size:11px;font-weight:800;cursor:pointer}
+
+@media(max-width:599px){
+ html,body{height:100%;background:#e5b300;overflow:hidden}
+ .phone[data-stage="app"]{height:100dvh;min-height:100dvh;background:#e5b300;box-shadow:none}
+ .phone[data-stage="app"] .screen{height:100dvh;overscroll-behavior-y:none;-webkit-overflow-scrolling:touch}
+ .bottom-nav{position:fixed;z-index:50;left:12px;right:12px;bottom:max(10px,env(safe-area-inset-bottom));background:#ffffffe0;border-color:#ffffffa8;box-shadow:0 16px 42px #001e5738;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);contain:layout paint}
+ .bottom-nav .nav-btn{background:transparent;-webkit-tap-highlight-color:transparent}
+ .bottom-nav .nav-btn.active{background:var(--yellow)}
+ .phone[data-view="home"] .screen,.phone[data-view="class"] .screen{background:#e5b300}
+ .phone[data-view="admin"] .screen{background:#eef3f9}
+}

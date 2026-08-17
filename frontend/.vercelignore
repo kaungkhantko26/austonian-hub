@@ -1,0 +1,4 @@
+.vercel/
+._*
+.DS_Store
+config.example.js
