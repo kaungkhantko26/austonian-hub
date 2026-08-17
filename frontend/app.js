@@ -126,10 +126,11 @@ document.addEventListener('submit',async e=>{if(e.target.id!=='resetForm')return
 let installPrompt;
 const installGate=document.querySelector('#installGate'),installButton=document.querySelector('#installButton'),installHelp=document.querySelector('#installHelp');
 const mobile=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent),standalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
-if(mobile&&!standalone){installGate.hidden=false;if(/iPhone|iPad|iPod/i.test(navigator.userAgent)){installButton.hidden=true;installHelp.textContent='Tap Share, then choose “Add to Home Screen”. Open Austonian Hub from the new icon to continue.'}}
+const setInstallGateVisible=visible=>{installGate.hidden=!visible;document.documentElement.classList.toggle('install-required',visible);document.body.classList.toggle('install-required',visible)};
+if(mobile&&!standalone){setInstallGateVisible(true);if(/iPhone|iPad|iPod/i.test(navigator.userAgent)){installButton.hidden=true;installHelp.textContent='Tap Share, then choose “Add to Home Screen”. Open Austonian Hub from the new icon to continue.'}}
 addEventListener('beforeinstallprompt',event=>{event.preventDefault();installPrompt=event;installButton.disabled=false});
 installButton.addEventListener('click',async()=>{if(!installPrompt){installHelp.textContent='Open your browser menu and choose “Add to Home screen”.';return}await installPrompt.prompt();installPrompt=null});
-addEventListener('appinstalled',()=>{installGate.hidden=true});
+addEventListener('appinstalled',()=>setInstallGateVisible(false));
 let pullStartY=0;
 app.addEventListener('touchstart',event=>{pullStartY=event.touches[0]?.clientY||0},{passive:true});
 app.addEventListener('touchmove',event=>{const currentY=event.touches[0]?.clientY||0;if(app.scrollTop<=0&&currentY>pullStartY)event.preventDefault()},{passive:false});

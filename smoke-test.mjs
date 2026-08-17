@@ -6,6 +6,7 @@ const root = fileURLToPath(new URL('./frontend/', import.meta.url));
 const read = file => readFileSync(join(root, file), 'utf8');
 const app = read('app.js');
 const html = read('index.html');
+const styles = read('styles.css');
 const serviceWorker = read('sw.js');
 const manifest = JSON.parse(read('manifest.webmanifest'));
 const failures = [];
@@ -31,6 +32,10 @@ const appVersion = html.match(/app\.js\?v=(\d+)/)?.[1];
 check(Boolean(cacheVersion) && cacheVersion === appVersion, 'Service-worker and app cache versions differ');
 check(html.includes('maximum-scale=1') && html.includes('user-scalable=no'), 'Mobile zoom lock is missing');
 check(manifest.display_override?.includes('fullscreen'), 'PWA fullscreen display override is missing');
+check(styles.includes('.phone[data-stage="app"]>.bottom-nav{position:fixed!important'), 'Mobile bottom navigation is not fixed to the viewport');
+check(styles.includes('padding:calc(env(safe-area-inset-top) + 12px) clamp(14px,4.8vw,20px) calc(82px + env(safe-area-inset-bottom))'), 'Mobile content does not have a single responsive navigation allowance');
+check(styles.includes('html.install-required .bottom-nav{display:none!important}'), 'Bottom navigation is not hidden by the install gate');
+check(app.includes("classList.toggle('install-required',visible)"), 'Install-gate state is not synchronized with the application shell');
 
 const actionNames = [...app.matchAll(/data-action="([a-z-]+)"/g)].map(match => match[1]);
 const handledActions = new Set(['forgot', 'logout', 'notifications', 'notify', 'details', 'profile', 'language', 'appearance', 'privacy', 'support', 'schedule', 'save', 'like', 'share']);
