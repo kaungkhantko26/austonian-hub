@@ -34,11 +34,13 @@ check(Boolean(cacheVersion) && cacheVersion === appVersion, 'Service-worker and 
 check(html.includes('maximum-scale=1') && html.includes('user-scalable=no'), 'Mobile zoom lock is missing');
 check(manifest.display_override?.includes('fullscreen'), 'PWA fullscreen display override is missing');
 check(styles.includes('.phone[data-stage="app"]>.bottom-nav{position:fixed!important'), 'Mobile bottom navigation is not fixed to the viewport');
-check(styles.includes('padding:calc(env(safe-area-inset-top) + 12px) clamp(16px,4.975vw,20px) calc(76px + max(4px,env(safe-area-inset-bottom)))'), 'Mobile content does not have a single responsive navigation allowance');
-check(styles.includes('left:12px!important;right:12px!important;bottom:max(4px,env(safe-area-inset-bottom))!important'), 'Mobile bottom navigation does not sit directly against the safe-zone boundary');
+check(styles.includes('padding:calc(env(safe-area-inset-top) + 12px) clamp(16px,4.975vw,20px) 76px'), 'Mobile content does not have a single responsive navigation allowance');
+check(styles.includes('left:12px!important;right:12px!important;bottom:0!important'), 'Mobile bottom navigation does not touch the viewport bottom');
 check(app.includes('class="id-card figma-id-card"') && styles.includes('aspect-ratio:564/326'), 'Student card does not match the Figma credential proportion');
 check(styles.includes('html.install-required .bottom-nav{display:none!important}'), 'Bottom navigation is not hidden by the install gate');
 check(app.includes("classList.toggle('install-required',visible)"), 'Install-gate state is not synchronized with the application shell');
+check(styles.includes('html.notification-required .bottom-nav{display:none!important}') && app.includes('setNotificationGateVisible'), 'Notification permission flow does not hide mobile navigation');
+check(styles.includes('.notification-gate-card{position:relative;z-index:1;width:100%;min-height:100dvh'), 'Notification permission flow is not full-screen on mobile');
 check(app.includes('global:{fetch:supabaseFetch}') && app.includes("requestUrl.pathname.startsWith('/auth/v1/')"), 'Supabase Auth does not use the same-origin fetch path');
 check(vercelConfig.includes('/supabase-auth/:path*') && vercelConfig.includes('/auth/v1/:path*'), 'Vercel Supabase Auth rewrite is missing');
 
