@@ -145,12 +145,12 @@ html[data-stage="login"],html[data-stage="signup"],html[data-stage="reset"],body
 @media(max-width:599px){
  body[data-stage="app"]{width:100%;height:100dvh;min-height:100dvh;background:var(--app-shell-bg,#e5b300);overflow:hidden}
  .phone[data-stage="app"]{position:relative;inset:auto;width:100%;max-width:none;height:100dvh;min-height:100dvh;background:var(--app-shell-bg,#e5b300)!important;box-shadow:none;overflow:hidden}
- .phone[data-stage="app"] .screen{width:100%;height:100dvh;min-height:0;margin:0;padding:calc(env(safe-area-inset-top) + 12px) clamp(14px,4.8vw,20px) calc(82px + env(safe-area-inset-bottom));background:var(--app-shell-bg,#e5b300);overflow-x:hidden;overflow-y:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch}
+ .phone[data-stage="app"] .screen{width:100%;height:100dvh;min-height:0;margin:0;padding:calc(env(safe-area-inset-top) + 12px) clamp(16px,4.975vw,20px) calc(80px + max(10px,env(safe-area-inset-bottom)));background:var(--app-shell-bg,#e5b300);overflow-x:hidden;overflow-y:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch}
  .phone[data-stage="app"] .desktop-content{display:block;min-width:0;margin:0;padding:0}
  .phone[data-stage="app"] .home-bg,.phone[data-stage="app"] .yellow-page,.phone[data-stage="app"] .figma-calendar-page,.phone[data-stage="app"] .admin-page,.phone[data-stage="app"] .admin-v2{width:100%;min-width:0;min-height:0!important;margin:0!important;padding:0!important}
- .phone[data-stage="app"]>.bottom-nav{position:fixed!important;z-index:1000;left:0!important;right:0!important;bottom:0!important;top:auto!important;width:100%!important;height:auto!important;min-height:68px;margin:0!important;padding:6px clamp(8px,3vw,14px) calc(6px + env(safe-area-inset-bottom))!important;grid-template-columns:repeat(var(--tab-count,6),minmax(0,1fr));gap:2px;box-sizing:border-box;border:1px solid #ffffffc7!important;border-width:1px 0 0!important;border-radius:24px 24px 0 0!important;background:#fffdf2f5!important;box-shadow:0 -10px 30px #001e5724!important;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);transform:none!important}
- .phone[data-stage="app"]>.bottom-nav .nav-btn{min-width:0;min-height:55px;padding:4px 1px;gap:3px;background:transparent;color:#001e57;font-size:clamp(6.5px,2vw,8px);line-height:1;white-space:nowrap;-webkit-tap-highlight-color:transparent}
- .phone[data-stage="app"]>.bottom-nav .nav-btn img{width:clamp(18px,5vw,21px);height:clamp(18px,5vw,21px)}
+ .phone[data-stage="app"]>.bottom-nav{position:fixed!important;z-index:1000;left:12px!important;right:12px!important;bottom:max(10px,env(safe-area-inset-bottom))!important;top:auto!important;width:auto!important;height:66px!important;min-height:66px;margin:0!important;padding:4px!important;grid-template-columns:repeat(var(--tab-count,6),minmax(0,1fr));gap:2px;box-sizing:border-box;border:1px solid #e0e5f0!important;border-radius:22px!important;background:#fff!important;box-shadow:0 8px 24px #001e5714!important;backdrop-filter:none;-webkit-backdrop-filter:none;transform:none!important;overflow:hidden}
+ .phone[data-stage="app"]>.bottom-nav .nav-btn{min-width:0;height:56px;min-height:56px;padding:0;gap:4px;border-radius:16px;background:#fff;color:#001e57;font-family:"Open Sans",Inter,sans-serif;font-size:8px;font-weight:600;line-height:11px;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+ .phone[data-stage="app"]>.bottom-nav .nav-btn img{width:20px;height:20px}
  .phone[data-stage="app"]>.bottom-nav .nav-btn.active{background:#ffcc03;color:#001e57}
  .phone[data-stage="app"] .header,.phone[data-stage="app"] .page-title,.phone[data-stage="app"] .figma-calendar-header{margin-top:0}
  .phone[data-stage="app"] .header{margin-bottom:clamp(14px,4vw,18px);padding:clamp(13px,3.8vw,16px)}
@@ -168,7 +168,7 @@ html[data-stage="login"],html[data-stage="signup"],html[data-stage="reset"],body
 }
 @media(max-width:359px){
  .phone[data-stage="app"] .screen{padding-left:12px;padding-right:12px}
- .phone[data-stage="app"]>.bottom-nav{padding-left:5px!important;padding-right:5px!important;gap:0}
+ .phone[data-stage="app"]>.bottom-nav{left:8px!important;right:8px!important;gap:0}
  .phone[data-stage="app"]>.bottom-nav .nav-btn{font-size:6.25px}
  .phone[data-stage="app"]>.bottom-nav .nav-btn img{width:18px;height:18px}
  .phone[data-stage="app"] .header h1{font-size:17px}

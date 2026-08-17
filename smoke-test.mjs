@@ -33,7 +33,8 @@ check(Boolean(cacheVersion) && cacheVersion === appVersion, 'Service-worker and 
 check(html.includes('maximum-scale=1') && html.includes('user-scalable=no'), 'Mobile zoom lock is missing');
 check(manifest.display_override?.includes('fullscreen'), 'PWA fullscreen display override is missing');
 check(styles.includes('.phone[data-stage="app"]>.bottom-nav{position:fixed!important'), 'Mobile bottom navigation is not fixed to the viewport');
-check(styles.includes('padding:calc(env(safe-area-inset-top) + 12px) clamp(14px,4.8vw,20px) calc(82px + env(safe-area-inset-bottom))'), 'Mobile content does not have a single responsive navigation allowance');
+check(styles.includes('padding:calc(env(safe-area-inset-top) + 12px) clamp(16px,4.975vw,20px) calc(80px + max(10px,env(safe-area-inset-bottom)))'), 'Mobile content does not have a single responsive navigation allowance');
+check(styles.includes('left:12px!important;right:12px!important;bottom:max(10px,env(safe-area-inset-bottom))!important'), 'Mobile bottom navigation does not match the Figma floating inset');
 check(styles.includes('html.install-required .bottom-nav{display:none!important}'), 'Bottom navigation is not hidden by the install gate');
 check(app.includes("classList.toggle('install-required',visible)"), 'Install-gate state is not synchronized with the application shell');
 
