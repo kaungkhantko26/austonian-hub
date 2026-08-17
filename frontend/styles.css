@@ -94,7 +94,7 @@ html,body,.phone,.screen{overscroll-behavior-y:none}
  html,body{height:100%;background:#e5b300;overflow:hidden}
  .phone[data-stage="app"]{height:100dvh;min-height:100dvh;background:#e5b300;box-shadow:none}
  .phone[data-stage="app"] .screen{height:100dvh;overscroll-behavior-y:none;-webkit-overflow-scrolling:touch}
- .bottom-nav{position:fixed;z-index:50;left:12px;right:12px;bottom:max(10px,env(safe-area-inset-bottom));background:#ffffffe0;border-color:#ffffffa8;box-shadow:0 16px 42px #001e5738;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);contain:layout paint}
+ .bottom-nav{position:fixed;z-index:50;left:0;right:0;bottom:0;width:100%;height:calc(67px + env(safe-area-inset-bottom));padding:5px 12px max(5px,env(safe-area-inset-bottom));border-width:1px 0 0;border-radius:24px 24px 0 0;background:#ffffffe8;border-color:#ffffffb8;box-shadow:0 -12px 36px #001e5728;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);contain:layout paint}
  .bottom-nav .nav-btn{background:transparent;-webkit-tap-highlight-color:transparent}
  .bottom-nav .nav-btn.active{background:var(--yellow)}
  .phone[data-view="home"] .screen,.phone[data-view="class"] .screen{background:#e5b300}
@@ -151,7 +151,8 @@ html[data-stage="login"],html[data-stage="signup"],html[data-stage="reset"],body
  .phone[data-stage="app"]{position:fixed;inset:0;width:100%;max-width:none;height:100%;min-height:-webkit-fill-available;background:var(--app-shell-bg,#e5b300)!important;overflow:hidden}
  .phone[data-stage="app"] .screen{height:100%;min-height:100%;background:var(--app-shell-bg,#e5b300)}
  html[data-view="admin"],body[data-view="admin"],.phone[data-view="admin"],.phone[data-view="admin"] .screen{background:#eef3f9!important}
- html[data-view="card"],body[data-view="card"],.phone[data-view="card"],html[data-view="settings"],body[data-view="settings"],.phone[data-view="settings"]{background:#f7f9fc!important}
+ html[data-view="card"],body[data-view="card"],.phone[data-view="card"]{background:#f7f9fc!important}
+ html[data-view="home"],body[data-view="home"],.phone[data-view="home"],html[data-view="jobs"],body[data-view="jobs"],.phone[data-view="jobs"],html[data-view="class"],body[data-view="class"],.phone[data-view="class"],html[data-view="feed"],body[data-view="feed"],.phone[data-view="feed"],html[data-view="settings"],body[data-view="settings"],.phone[data-view="settings"]{background:#e5b300!important}
  input,select,textarea{font-size:16px!important}
  .schedule-popup-form input{font-size:16px!important}
  button,a,[role="button"],input,select,textarea{touch-action:manipulation}
