@@ -9,6 +9,7 @@ const html = read('index.html');
 const styles = read('styles.css');
 const serviceWorker = read('sw.js');
 const manifest = JSON.parse(read('manifest.webmanifest'));
+const vercelConfig = read('vercel.json');
 const failures = [];
 const check = (condition, message) => { if (!condition) failures.push(message); };
 
@@ -38,6 +39,8 @@ check(styles.includes('left:12px!important;right:12px!important;bottom:max(4px,e
 check(app.includes('class="id-card figma-id-card"') && styles.includes('aspect-ratio:564/326'), 'Student card does not match the Figma credential proportion');
 check(styles.includes('html.install-required .bottom-nav{display:none!important}'), 'Bottom navigation is not hidden by the install gate');
 check(app.includes("classList.toggle('install-required',visible)"), 'Install-gate state is not synchronized with the application shell');
+check(app.includes('global:{fetch:supabaseFetch}') && app.includes("requestUrl.pathname.startsWith('/auth/v1/')"), 'Supabase Auth does not use the same-origin fetch path');
+check(vercelConfig.includes('/supabase-auth/:path*') && vercelConfig.includes('/auth/v1/:path*'), 'Vercel Supabase Auth rewrite is missing');
 
 const actionNames = [...app.matchAll(/data-action="([a-z-]+)"/g)].map(match => match[1]);
 const handledActions = new Set(['forgot', 'logout', 'notifications', 'notify', 'details', 'profile', 'language', 'appearance', 'privacy', 'support', 'schedule', 'save', 'like', 'share']);
