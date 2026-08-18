@@ -42,8 +42,11 @@ check(styles.includes('html.install-required .bottom-nav{display:none!important}
 check(app.includes("classList.toggle('install-required',visible)"), 'Install-gate state is not synchronized with the application shell');
 check(styles.includes('html.notification-required .bottom-nav{display:none!important}') && app.includes('setNotificationGateVisible'), 'Notification permission flow does not hide mobile navigation');
 check(styles.includes('.notification-gate-card{position:relative;z-index:1;width:100%;min-height:100dvh'), 'Notification permission flow is not full-screen on mobile');
-check(app.includes('global:{fetch:supabaseFetch}') && app.includes("requestUrl.pathname.startsWith('/auth/v1/')"), 'Supabase Auth does not use the same-origin fetch path');
+check(app.includes('global:{fetch:supabaseFetch}') && app.includes("['/auth/v1/','/supabase-auth/']"), 'Supabase Auth does not use the same-origin fetch path');
+check(app.includes("['/rest/v1/','/supabase-rest/']"), 'Supabase database and RPC requests do not use the same-origin fetch path');
 check(vercelConfig.includes('/supabase-auth/:path*') && vercelConfig.includes('/auth/v1/:path*'), 'Vercel Supabase Auth rewrite is missing');
+check(vercelConfig.includes('/supabase-rest/:path*') && vercelConfig.includes('/rest/v1/:path*'), 'Vercel Supabase REST rewrite is missing');
+check(serviceWorker.includes("!path.startsWith('/supabase-')"), 'Service worker may cache Supabase proxy responses');
 
 const actionNames = [...app.matchAll(/data-action="([a-z-]+)"/g)].map(match => match[1]);
 const handledActions = new Set(['forgot', 'logout', 'notifications', 'notify', 'details', 'profile', 'language', 'appearance', 'privacy', 'support', 'schedule', 'save', 'like', 'share']);
