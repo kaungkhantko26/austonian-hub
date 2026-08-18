@@ -34,9 +34,9 @@ check(Boolean(cacheVersion) && cacheVersion === appVersion, 'Service-worker and 
 check(html.includes('maximum-scale=1') && html.includes('user-scalable=no'), 'Mobile zoom lock is missing');
 check(manifest.display_override?.includes('fullscreen'), 'PWA fullscreen display override is missing');
 check(styles.includes('.phone[data-stage="app"]>.bottom-nav{position:fixed!important'), 'Mobile bottom navigation is not fixed to the viewport');
-check(styles.includes('padding:calc(env(safe-area-inset-top) + 12px) clamp(16px,4.975vw,20px) calc(76px + env(safe-area-inset-bottom,0px))'), 'Mobile content does not have a single safe-area-aware navigation allowance');
-check(styles.includes('left:0!important;right:0!important;bottom:0!important') && styles.includes('width:100%!important;height:calc(66px + env(safe-area-inset-bottom,0px))!important'), 'Mobile bottom navigation does not cover the full viewport safe area');
-check(styles.includes('padding:4px 12px calc(4px + env(safe-area-inset-bottom,0px))!important'), 'Mobile bottom navigation does not extend its own background through the iOS safe area');
+check(styles.includes('padding:calc(env(safe-area-inset-top) + 12px) clamp(16px,4.975vw,20px) calc(100px + env(safe-area-inset-bottom,0px))'), 'Mobile content does not have a single safe-area-aware floating navigation allowance');
+check(styles.includes('left:12px!important;right:12px!important;bottom:calc(12px + env(safe-area-inset-bottom,0px))!important'), 'Mobile bottom navigation is not floating above the iOS home indicator');
+check(styles.includes('height:76px!important;min-height:76px') && styles.includes('border-radius:24px!important') && styles.includes('padding:10px 4px!important'), 'Mobile bottom navigation does not retain its rounded floating-pill geometry');
 check(app.includes('class="id-card figma-id-card"') && styles.includes('aspect-ratio:564/326'), 'Student card does not match the Figma credential proportion');
 check(styles.includes('html.install-required .bottom-nav{display:none!important}'), 'Bottom navigation is not hidden by the install gate');
 check(app.includes("classList.toggle('install-required',visible)"), 'Install-gate state is not synchronized with the application shell');
