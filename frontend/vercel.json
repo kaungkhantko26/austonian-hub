@@ -3,7 +3,8 @@
   "rewrites": [
     {"source":"/supabase-auth/:path*","destination":"https://cylerwvcbsxobpkidfyu.supabase.co/auth/v1/:path*"},
     {"source":"/supabase-rest/:path*","destination":"https://cylerwvcbsxobpkidfyu.supabase.co/rest/v1/:path*"},
-    {"source":"/supabase-functions/:path*","destination":"https://cylerwvcbsxobpkidfyu.supabase.co/functions/v1/:path*"}
+    {"source":"/supabase-functions/:path*","destination":"https://cylerwvcbsxobpkidfyu.supabase.co/functions/v1/:path*"},
+    {"source":"/supabase-storage/:path*","destination":"https://cylerwvcbsxobpkidfyu.supabase.co/storage/v1/:path*"}
   ],
   "headers": [
     {"source":"/sw.js","headers":[{"key":"Cache-Control","value":"no-cache"}]}
