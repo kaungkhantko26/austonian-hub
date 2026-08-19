@@ -24,6 +24,7 @@ alter table public.profiles add column if not exists major text;
 do $$ begin
   alter table public.profiles add constraint profiles_major_check check (major in ('CS','NW','ME','EE'));
 exception when duplicate_object then null; end $$;
+alter table public.profiles add column if not exists admit_term text not null default '';
 update public.profiles set academic_level='semester-2' where semester=2 and academic_level is null;
 
 create table if not exists public.academic_assignments (
