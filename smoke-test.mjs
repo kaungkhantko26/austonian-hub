@@ -49,7 +49,7 @@ check(vercelConfig.includes('/supabase-rest/:path*') && vercelConfig.includes('/
 check(serviceWorker.includes("!path.startsWith('/supabase-')"), 'Service worker may cache Supabase proxy responses');
 
 const actionNames = [...app.matchAll(/data-action="([a-z-]+)"/g)].map(match => match[1]);
-const handledActions = new Set(['forgot', 'logout', 'notifications', 'notify', 'details', 'profile', 'language', 'appearance', 'privacy', 'support', 'schedule', 'save', 'like', 'share']);
+const handledActions = new Set(['forgot', 'logout', 'notifications', 'notify', 'details', 'profile', 'language', 'appearance', 'privacy', 'support', 'schedule', 'benefits', 'save', 'like', 'share']);
 for (const action of new Set(actionNames)) {
   check(handledActions.has(action), `No smoke-test contract for data-action="${action}"`);
 }
