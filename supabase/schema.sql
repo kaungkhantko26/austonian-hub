@@ -317,7 +317,7 @@ create policy "Students update own profile" on public.profiles for update to aut
 drop policy if exists "Admins read academic assignments" on public.academic_assignments;
 create policy "Admins read academic assignments" on public.academic_assignments for select to authenticated using ((select public.is_admin()));
 revoke update on table public.profiles from authenticated;
-grant update (full_name, program, avatar_url, updated_at) on table public.profiles to authenticated;
+grant update (full_name, program, admit_term, avatar_url, updated_at) on table public.profiles to authenticated;
 drop policy if exists "Students read published timetable" on public.timetable;
 create policy "Students read published timetable" on public.timetable for select to authenticated using (
   ((select public.is_admin()) and source = 'official')

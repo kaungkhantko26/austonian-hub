@@ -1,4 +1,4 @@
-const CACHE='austonian-hub-v55';
+const CACHE='austonian-hub-v56';
 const ASSETS=['/','/index.html','/styles.css','/desktop.css','/app.js','/manifest.webmanifest','/assets/auston-logo.png','/assets/app-icon-192.png','/assets/app-icon-512.png','/assets/apple-touch-icon.png','/assets/favicon-32.png','/assets/home.svg','/assets/card.svg','/assets/jobs.svg','/assets/class.svg','/assets/feed.svg','/assets/settings.svg','/assets/admin.svg','/assets/bell.svg','/assets/language.svg','/assets/appearance.svg','/assets/privacy.svg','/assets/support.svg','/assets/benefit-star.svg','/assets/benefit-sport.svg','/assets/benefit-phone.svg','/assets/benefit-snack.svg'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
